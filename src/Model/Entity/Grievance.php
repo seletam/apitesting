@@ -7,8 +7,9 @@ use Cake\ORM\Entity;
  * Grievance Entity
  *
  * @property int $id
- * @property int $user_id
+ * @property int $location_id
  * @property string $description
+ * @property int $user_id
  * @property \Cake\I18n\Time $created_date
  * @property \Cake\I18n\Time $modified_date
  *

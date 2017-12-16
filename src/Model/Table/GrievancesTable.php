@@ -9,6 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Grievances Model
  *
+ * @property \Cake\ORM\Association\BelongsTo $Location
  * @property \Cake\ORM\Association\BelongsTo $Users
  *
  * @method \App\Model\Entity\Grievance get($primaryKey, $options = [])
@@ -36,6 +37,9 @@ class GrievancesTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
+        $this->belongsTo('Location', [
+            'foreignKey' => 'location_id'
+        ]);
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id'
         ]);
@@ -76,6 +80,7 @@ class GrievancesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->existsIn(['location_id'], 'Location'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;

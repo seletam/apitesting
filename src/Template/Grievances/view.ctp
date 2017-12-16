@@ -22,12 +22,12 @@
             <td><?= $grievance->has('user') ? $this->Html->link($grievance->user->id, ['controller' => 'Users', 'action' => 'view', $grievance->user->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= h($grievance->description) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($grievance->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Location Id') ?></th>
+            <td><?= $this->Number->format($grievance->location_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created Date') ?></th>
@@ -38,4 +38,8 @@
             <td><?= h($grievance->modified_date) ?></td>
         </tr>
     </table>
+    <div class="row">
+        <h4><?= __('Description') ?></h4>
+        <?= $this->Text->autoParagraph(h($grievance->description)); ?>
+    </div>
 </div>

@@ -22,8 +22,9 @@
     <fieldset>
         <legend><?= __('Edit Grievance') ?></legend>
         <?php
-            echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
+            echo $this->Form->control('location_id');
             echo $this->Form->control('description');
+            echo $this->Form->control('user_id', ['options' => $users, 'empty' => true]);
             echo $this->Form->control('created_date', ['empty' => true]);
             echo $this->Form->control('modified_date', ['empty' => true]);
         ?>

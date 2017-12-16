@@ -17,8 +17,8 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('location_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created_date') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified_date') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -28,8 +28,8 @@
             <?php foreach ($grievances as $grievance): ?>
             <tr>
                 <td><?= $this->Number->format($grievance->id) ?></td>
+                <td><?= $this->Number->format($grievance->location_id) ?></td>
                 <td><?= $grievance->has('user') ? $this->Html->link($grievance->user->id, ['controller' => 'Users', 'action' => 'view', $grievance->user->id]) : '' ?></td>
-                <td><?= h($grievance->description) ?></td>
                 <td><?= h($grievance->created_date) ?></td>
                 <td><?= h($grievance->modified_date) ?></td>
                 <td class="actions">
